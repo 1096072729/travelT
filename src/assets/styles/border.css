@@ -1,0 +1,90 @@
+@mixin border_1px($color) {
+
+  //设置父元素相对定位，否则子元素是个根节点
+
+  position: relative;
+
+  //媒体查询
+
+  @media(-webkit-min-device-pixel-ratio: 1.5),
+  (min-device-pixel-ratio: 1.5) {
+
+    &::before {
+
+      content: ' ';
+
+      position: absolute;
+
+      left: 0px;
+
+      top: 0px;
+
+      background-color: $color;
+
+      height: 1px;
+
+      width: 100%;
+
+      //核心,1px/像素比
+
+      transform: scaleY(0.667);
+
+    }
+
+  }
+
+  @media(-webkit-min-device-pixel-ratio: 2),
+  (min-device-pixel-ratio: 2) {
+
+    &::before {
+
+      content: ' ';
+
+      position: absolute;
+
+      left: 0px;
+
+      top: 0px;
+
+      background-color: $color;
+
+      height: 1px;
+
+      width: 100%;
+
+      //核心
+
+      transform: scaleY(0.5);
+
+    }
+
+  }
+
+  @media(-webkit-min-device-pixel-ratio: 3),
+  (min-device-pixel-ratio: 3) {
+
+    &::before {
+
+      content: ' ';
+
+      position: absolute;
+
+      left: 0px;
+
+      top: 0px;
+
+      background-color: $color;
+
+      height: 1px;
+
+      width: 100%;
+
+      //核心
+
+      transform: scaleY(0.333);
+
+    }
+
+  }
+
+}
